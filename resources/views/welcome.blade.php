@@ -130,7 +130,7 @@
         </div>
         <script>
             
-            const url = "http://127.0.0.1:8888/api/test-api"
+            const url = "http://127.0.0.1:8888/api/products"
 
             fetch(url).then(res=>res.json()).then(res=>{
                 console.log(res);
