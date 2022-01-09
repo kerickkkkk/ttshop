@@ -38,7 +38,9 @@
                         @if($role === 'admin')
                             <li>管理者</li>
                         @elseif($role === 'customer')
-                            <li>顧客</li>
+                            <li>顧客 
+                                <a href="{{route('customer.profile')}}"></a>
+                            </li>
                         @else
                             <li>其他非管理者 顧客</li>
                         @endif
