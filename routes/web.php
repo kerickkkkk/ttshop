@@ -21,14 +21,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function(){
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
     // customer
-    Route::get('/', [CustomerController::class,'profile'])->name('customer.profile');
+    Route::middleware('customer.check')->get('/customer/profile', [CustomerController::class,'profile'])->name('customer.profile');
+    
     // admin
     Route::prefix('admin')->group(function()
     {
-        Route::get('/', [AdminController::class,'index'])->name('admin.index');
+        Route::middleware('admin.check')->get('/', [AdminController::class,'index'])->name('admin.index');
     });
 });

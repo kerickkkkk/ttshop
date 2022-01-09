@@ -9,12 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -42,7 +36,7 @@
                                 <a href="{{route('customer.profile')}}"></a>
                             </li>
                         @else
-                            <li>其他非管理者 顧客</li>
+                            <li>其他非管理者或顧客</li>
                         @endif
                     </ul>
 
@@ -64,7 +58,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->name }} 您好
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
