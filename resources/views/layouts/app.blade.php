@@ -32,7 +32,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        @php
+                            $role = Auth::user()->role ?? null;
+                        @endphp
+                        @if($role === 'admin')
+                            <li>管理者</li>
+                        @elseif($role === 'customer')
+                            <li>顧客</li>
+                        @else
+                            <li>其他非管理者 顧客</li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
