@@ -43,7 +43,7 @@ class LoginController extends Controller
     {
         $role = Auth::user()->role ?? null;
         if($role==='admin'){
-            return ('/admin/index');
+            return ('/home');
         }elseif($role === 'customer'){
             return ('/customer/profile');
         }else{

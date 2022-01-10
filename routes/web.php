@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::resource('products', ProductController::class)->except('create', 'edit');
 
 Route::middleware(['auth'])->group(function(){
 
@@ -35,3 +36,4 @@ Route::middleware(['auth'])->group(function(){
         Route::middleware('admin.check')->get('/', [AdminController::class,'index'])->name('admin.index');
     });
 });
+

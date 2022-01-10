@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,17 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('home');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return json_encode(Product::all());
     }
 
     /**
@@ -44,17 +35,6 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
     {
         //
     }
