@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +33,11 @@ Route::middleware(['auth'])->group(function(){
     Route::middleware('customer.check')->get('/customer/profile', [CustomerController::class,'profile'])->name('customer.profile');
     
     // admin
-    Route::prefix('admin')->group(function()
+    Route::prefix('admin')->middleware('admin.check')->group(function()
     {
-        Route::middleware('admin.check')->get('/', [AdminController::class,'index'])->name('admin.index');
+        Route::get('/', [AdminController::class,'index'])->name('admin.index');
+        Route::resource('/product-categories', ProductCategoryController::class);
+        Route::resource('/products', ProductController::class);
     });
 });
 
