@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return json_encode(Product::all());
+        $products = Product::all();
+        return view('admin.products.index', compact('products'));
     }
 
     /**

@@ -19,15 +19,15 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/products', function(){
+// Route::get('/products', function(){
 
-    $products = Product::all();
-    return json_encode(
-        $products->map(function($product){
-            return [
-                'name' => $product->name,
-                'price' => $product->price,
-            ];
-        })
-    );
-});
+//     $products = Product::all();
+//     return json_encode(
+//         $products->map(function($product){
+//             return [
+//                 'name' => $product->name,
+//                 'price' => $product->price,
+//             ];
+//         })
+//     );
+// });

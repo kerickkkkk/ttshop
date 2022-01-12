@@ -31,10 +31,18 @@
                             $role = Auth::user()->role ?? null;
                         @endphp
                         @if($role === 'admin')
-                            <li>管理者</li>
+                            <li class="nav-item">
+                                <a class="nav-link 
+                                    @if( url()->current() === route('product-categories.index'))
+                                        active
+                                    @endif
+                                " href="{{ route('product-categories.index') }}">產品分類管理</a>
+                            </li>
                         @elseif($role === 'customer')
-                            <li>顧客 
-                                <a href="{{route('customer.profile')}}"></a>
+                            <li>
+                                <a class="nav-link" href="{{route('customer.profile')}}">
+                                    資料
+                                </a>
                             </li>
                         @else
                             <li>其他非管理者或顧客</li>
@@ -59,6 +67,14 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @if($role === 'admin')
+                                        管理者：
+                                    @elseif($role === 'customer')
+                                        會員： 
+                                    @else
+                                        <li>非管理者或會員</li>
+                                    @endif
+
                                     {{ Auth::user()->name }} 您好
                                 </a>
 
