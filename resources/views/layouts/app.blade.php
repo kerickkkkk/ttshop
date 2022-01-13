@@ -11,14 +11,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 <body>
     <div id="app">
         
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ url('/admin/home') }}">
+                    {{ config('app.name', 'Laravel') }} 後臺
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -26,28 +27,46 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        @php
-                            $role = Auth::user()->role ?? null;
-                        @endphp
-                        @if($role === 'admin')
-                            <li class="nav-item">
-                                <a class="nav-link 
-                                    @if( url()->current() === route('product-categories.index'))
-                                        active
-                                    @endif
-                                " href="{{ route('product-categories.index') }}">產品分類管理</a>
-                            </li>
-                        @elseif($role === 'customer')
+                    @guest
+                    @else
+                        <ul class="navbar-nav me-auto">
                             <li>
-                                <a class="nav-link" href="{{route('customer.profile')}}">
-                                    資料
+                                <a class="nav-link" href="{{route('index')}}">
+                                    返回前臺
                                 </a>
                             </li>
-                        @else
-                            <li>其他非管理者或顧客</li>
-                        @endif
-                    </ul>
+                            @php
+                                $role = Auth::user()->role ?? null;
+                            @endphp
+                            @if($role === 'admin')
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                        產品管理
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item 
+                                            @if( url()->current() === route('product-categories.index'))
+                                                active
+                                            @endif
+                                        " href="{{ route('product-categories.index') }}">分類</a>
+                                        <a class="dropdown-item 
+                                            @if( url()->current() === route('products.index'))
+                                                active
+                                            @endif
+                                        " href="{{ route('products.index') }}">列表</a>
+                                    </div>
+                                </li>
+                            @elseif($role === 'customer')
+                                <li>
+                                    <a class="nav-link" href="{{route('customer.profile')}}">
+                                        資料
+                                    </a>
+                                </li>
+                            @else
+                                <li>其他非管理者或顧客</li>
+                            @endif
+                        </ul>
+                    @endguest
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">

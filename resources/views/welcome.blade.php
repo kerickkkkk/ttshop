@@ -9,6 +9,13 @@
 
     </head>
     <body>
+        {{-- <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin">首頁</a></li>
+                <li class="breadcrumb-item"><a href="/admin/news">最新消息管理</a></li>
+                <li class="breadcrumb-item active" aria-current="page">新增消息</li>
+            </ol>
+        </nav> --}}
         <div class="">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">

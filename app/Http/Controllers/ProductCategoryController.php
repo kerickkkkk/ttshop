@@ -98,7 +98,7 @@ class ProductCategoryController extends Controller
             return response()->json([
                 'success' => false,
                 'status' => 'error',
-                'message' => "分類: {$productCategoryLinkProduct->name} 刪除失敗，有 {$productCategoryLinkProductLength} 個產品與此分類關聯"
+                'message' => "分類: {$productCategoryLinkProduct->name} 刪除失敗，尚有 {$productCategoryLinkProductLength} 個產品與此分類關聯"
             ]);
             
         }

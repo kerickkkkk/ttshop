@@ -19,7 +19,7 @@ use App\Http\Controllers\ProductCategoryController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 Auth::routes();
 
@@ -36,8 +36,9 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('admin')->middleware('admin.check')->group(function()
     {
         Route::get('/', [AdminController::class,'index'])->name('admin.index');
-        Route::resource('/product-categories', ProductCategoryController::class);
-        Route::resource('/products', ProductController::class);
+        Route::resource('/product-categories', ProductCategoryController::class)->except('show');
+        Route::resource('/products', ProductController::class)->except('show');
+        Route::delete('/delete-product-image', [ProductController::class, 'delete'])->name('delete-product-image');
     });
 });
 
