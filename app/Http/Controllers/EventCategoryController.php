@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductCategory;
+use App\Models\EventCategory;
 use Illuminate\Http\Request;
 
-class ProductCategoryController extends Controller
+class EventCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        $productCategories  = ProductCategory::all()->sortBy('id');
-        return view('admin.product-category.index', compact('productCategories'));
+        $eventCategories = EventCategory::all();
+        return view('admin.event-category.index', compact('eventCategories'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.product-category.create');
+        return view('admin.event-category.create');
     }
 
     /**
@@ -36,11 +36,10 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        ProductCategory::create([
-            'name' => $request->name
+        EventCategory::create([
+            'name'=> $request->name
         ]);
-
-        return redirect()->route('product-categories.index');
+        return redirect()->route('event-categories.index');
     }
 
     /**
@@ -62,8 +61,8 @@ class ProductCategoryController extends Controller
      */
     public function edit($id)
     {
-        $productCategory = ProductCategory::find($id);
-        return view('admin.product-category.edit', compact('productCategory'));
+        $eventCategory = EventCategory::find($id);
+        return view('admin.event-category.edit', compact('eventCategory'));
     }
 
     /**
@@ -75,10 +74,11 @@ class ProductCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        ProductCategory::find($id)->update([
+        EventCategory::find($id)->update([
             'name' => $request->name
         ]);
-        return redirect()->route('product-categories.index');
+
+        return redirect()->route('event-categories.index');
     }
 
     /**
@@ -89,26 +89,23 @@ class ProductCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $productCategory = ProductCategory::with('products');
-        $productCategoryLinkProduct = $productCategory->find($id);
+        $eventCategory = EventCategory::with('events')->find($id);
 
-        $productCategoryLinkProductLength =count($productCategory->find($id)->products);
+        $eventCategoryEventLength = count($eventCategory->events);
 
-        if($productCategoryLinkProductLength > 0){
+        if( $eventCategoryEventLength > 0){
             return response()->json([
                 'success' => false,
                 'status' => 'error',
-                'message' => "分類: {$productCategoryLinkProduct->name} 刪除失敗，尚有 {$productCategoryLinkProductLength} 個產品與此分類關聯"
+                'message' => "分類: {$eventCategory->name} 刪除失敗，尚有 {$eventCategoryEventLength} 個最新消息與此分類關聯"
             ]);
-            
         }
         
-        $productCategoryLinkProduct ->delete();
-
+        $eventCategory->delete();
         return response()->json([
             'success' => true,
             'status' => 'success',
-            'message' => "分類: {$productCategoryLinkProduct->name} 刪除成功"
+            'message' => "分類: {$eventCategory->name} 刪除成功"
         ]);
     }
 }

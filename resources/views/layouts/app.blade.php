@@ -56,6 +56,23 @@
                                         " href="{{ route('products.index') }}">列表</a>
                                     </div>
                                 </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                        最新消息管理
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item 
+                                            @if( url()->current() === route('event-categories.index'))
+                                                active
+                                            @endif
+                                        " href="{{ route('event-categories.index') }}">分類</a>
+                                        {{-- <a class="dropdown-item 
+                                            @if( url()->current() === route('events.index'))
+                                                active
+                                            @endif
+                                        " href="{{ route('events.index') }}">列表</a> --}}
+                                    </div>
+                                </li>
                             @elseif($role === 'customer')
                                 <li>
                                     <a class="nav-link" href="{{route('customer.profile')}}">

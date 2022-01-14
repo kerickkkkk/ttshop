@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EventCategoryController;
 use App\Http\Controllers\ProductCategoryController;
 
 /*
@@ -39,6 +40,10 @@ Route::middleware(['auth'])->group(function(){
         Route::resource('/product-categories', ProductCategoryController::class)->except('show');
         Route::resource('/products', ProductController::class)->except('show');
         Route::delete('/delete-product-image', [ProductController::class, 'delete'])->name('delete-product-image');
+
+        // 最新消息
+        Route::resource('/event-categories', EventCategoryController::class)->except('show');
+
     });
 });
 
