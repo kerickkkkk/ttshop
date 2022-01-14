@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <form id="updateFrom" method="POST" action="{{ route('products.update', ['product'=> $product->id]) }}" enctype="multipart/form-data">
                         @csrf
-                        @method('PATCH ')
+                        @method('PATCH')
                         <div class="form-group row py-2">
                             <label for="name" class="col-sm-2 col-form-label">標題</label>
                             <div class="col-sm-10">
@@ -66,7 +66,7 @@
                         </div>
                         <hr>
                         <div class="form-group row py-2">
-                            <label for="image" class="col-sm-2 col-form-label">其他圖片</label>
+                            <label class="col-sm-2 col-form-label">其他圖片</label>
                             <div class="col-sm-10">
                                 <div class="row">
                                     @foreach ($product->productImages as $item)

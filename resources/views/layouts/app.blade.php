@@ -66,11 +66,11 @@
                                                 active
                                             @endif
                                         " href="{{ route('event-categories.index') }}">分類</a>
-                                        {{-- <a class="dropdown-item 
+                                        <a class="dropdown-item 
                                             @if( url()->current() === route('events.index'))
                                                 active
                                             @endif
-                                        " href="{{ route('events.index') }}">列表</a> --}}
+                                        " href="{{ route('events.index') }}">列表</a>
                                     </div>
                                 </li>
                             @elseif($role === 'customer')
