@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('products', ProductController::class)->except('create', 'edit');
+// Route::resource('products', ProductController::class)->except('create', 'edit');
 
 Route::middleware(['auth'])->group(function(){
 
