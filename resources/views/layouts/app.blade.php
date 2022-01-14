@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'ttshop') }}</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
@@ -84,8 +84,8 @@
                             @endif
                         </ul>
                     @endguest
-
-                    <!-- Right Side Of Navbar -->
+                        
+                    <!-- Right Side Of Navbar -->       
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
