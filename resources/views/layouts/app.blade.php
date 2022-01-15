@@ -73,6 +73,11 @@
                                         " href="{{ route('events.index') }}">列表</a>
                                     </div>
                                 </li>
+                                <li>
+                                    <a class="nav-link" href="{{route('contacts.index')}}">
+                                        顧客留言
+                                    </a>
+                                </li>
                             @elseif($role === 'customer')
                                 <li>
                                     <a class="nav-link" href="{{route('customer.profile')}}">

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EventCategoryController;
@@ -45,6 +46,10 @@ Route::middleware(['auth'])->group(function(){
         // 最新消息
         Route::resource('/event-categories', EventCategoryController::class)->except('show');
         Route::resource('/events', EventController::class)->except('show');
+
+        // Contact
+        Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
+        Route::delete('/contacts/{contact}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 
     });
 });
