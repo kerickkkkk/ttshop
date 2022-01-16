@@ -41,6 +41,9 @@
                             <a class="nav-link" href="">最新消息</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('products')}}">產品</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="">關於我們</a>
                         </li>
                         <li class="nav-item">
@@ -105,6 +108,26 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        $(function(){
+            $(window).on('scroll', scrollHandler)
+
+
+            function scrollHandler(){
+                const saleScrollTop = $('#sale') ? $('#sale').offset()?.top : null;
+                if(this.scrollY > 100){
+                    $('.navbar').removeClass('navbar-light bg-transparent py-4')
+                        .addClass('navbar-dark bg-dark py-2 opacity-75')
+                }else{
+                    $('.navbar').removeClass('navbar-dark bg-dark opacity-75 py-2')
+                        .addClass('navbar-light bg-transparent py-4')
+                }
+                if(this.scrollY > saleScrollTop){
+                    $('.navbar').removeClass('opacity-75')
+                }
+            }
+        })
+    </script>
     @yield('js')
 </body>
 </html>

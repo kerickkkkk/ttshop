@@ -300,23 +300,5 @@
             }
         },
     });
-
-
-    $(window).on('scroll', scrollHandler)
-
-
-    function scrollHandler(){
-        const saleScrollTop = $('#sale').offset().top;
-        if(this.scrollY > 100){
-            $('.navbar').removeClass('navbar-light bg-transparent py-4')
-                .addClass('navbar-dark bg-dark py-2 opacity-75')
-        }else{
-            $('.navbar').removeClass('navbar-dark bg-dark opacity-75 py-2')
-                .addClass('navbar-light bg-transparent py-4')
-        }
-        if(this.scrollY > saleScrollTop){
-            $('.navbar').removeClass('opacity-75')
-        }
-    }
 </script>
 @endsection
