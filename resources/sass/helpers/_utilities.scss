@@ -11,6 +11,12 @@ $utilities: map-merge(
       map-get($utilities,"translate-middle"),
       (
         responsive: true,
+        values: (
+          none: none,
+          null: translate(-50%, -50%),
+            x: translateX(-50%),
+            y: translateY(-50%),
+        )
       )
     ),
     "width": map-merge(
@@ -19,14 +25,31 @@ $utilities: map-merge(
         responsive: true,
       )
     ),
-    "overflow": map-merge(
-      map-get($utilities,"overflow"),
+    "font-size": map-merge(
+      map-get($utilities,"font-size"),
       (
         responsive: true,
       )
     ),
-    "font-size": map-merge(
-      map-get($utilities,"font-size"),
+    "color": map-merge(
+      map-get($utilities,"color"),
+      (
+        responsive: true,
+      )
+    ),
+    "viewport-height": map-merge(
+      map-get($utilities,"viewport-height"),
+      (
+        values: (
+          25: 25vh,
+          50: 50vh,
+          75: 75vh,
+          100: 100vh,
+        )
+      )
+    ),
+    "overflow": map-merge(
+      map-get($utilities,"overflow"),
       (
         responsive: true,
       )
@@ -44,7 +67,10 @@ $utilities: map-merge(
 
 
 
-
+img{
+  max-width: 100%;
+  height: auto;
+}
 
 
 
@@ -57,4 +83,22 @@ $utilities: map-merge(
 .img-cover{
   object-fit: center;
   object-position: center center;
+}
+
+.z-index-m-1{
+  z-index: -1;
+}
+.z-index-0{
+  z-index: 0;
+}
+.z-index-1{
+  z-index: 1;
+}
+
+.parallax {
+  background-attachment: fixed;
+}
+
+.transition-all-1{
+  transition: all 1s;
 }

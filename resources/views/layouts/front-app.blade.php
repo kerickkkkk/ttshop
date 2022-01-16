@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm opacity-75 fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light bg-transparent py-4 shadow-sm fixed-top transition-all-1">
             <div class="container position-relative">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -99,6 +99,7 @@
             @yield('content')
             @yield('main')
         </main>
+        <footer class="bg-dark py-4 text-center text-white"> ⓒ 2022 ttshop All Right Reserved. </footer>
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
