@@ -41,7 +41,7 @@
                             <a class="nav-link" href="">最新消息</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('products')}}">產品</a>
+                            <a class="nav-link" href="{{route('products')}}">精選產品</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">關於我們</a>
