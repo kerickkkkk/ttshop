@@ -52,15 +52,15 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item 
-                                            @if( url()->current() === route('product-categories.index'))
+                                            @if( url()->current() === route('admin.product-categories.index'))
                                                 active
                                             @endif
-                                        " href="{{ route('product-categories.index') }}">分類</a>
+                                        " href="{{ route('admin.product-categories.index') }}">分類</a>
                                         <a class="dropdown-item 
-                                            @if( url()->current() === route('products.index'))
+                                            @if( url()->current() === route('admin.products.index'))
                                                 active
                                             @endif
-                                        " href="{{ route('products.index') }}">列表</a>
+                                        " href="{{ route('admin.products.index') }}">列表</a>
                                     </div>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -69,19 +69,19 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item 
-                                            @if( url()->current() === route('event-categories.index'))
+                                            @if( url()->current() === route('admin.event-categories.index'))
                                                 active
                                             @endif
-                                        " href="{{ route('event-categories.index') }}">分類</a>
+                                        " href="{{ route('admin.event-categories.index') }}">分類</a>
                                         <a class="dropdown-item 
-                                            @if( url()->current() === route('events.index'))
+                                            @if( url()->current() === route('admin.events.index'))
                                                 active
                                             @endif
-                                        " href="{{ route('events.index') }}">列表</a>
+                                        " href="{{ route('admin.events.index') }}">列表</a>
                                     </div>
                                 </li>
                                 <li>
-                                    <a class="nav-link" href="{{route('contacts.index')}}">
+                                    <a class="nav-link" href="{{route('admin.contacts.index')}}">
                                         顧客留言
                                     </a>
                                 </li>
