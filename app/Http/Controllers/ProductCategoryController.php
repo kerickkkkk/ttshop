@@ -40,7 +40,7 @@ class ProductCategoryController extends Controller
             'name' => $request->name
         ]);
 
-        return redirect()->route('product-categories.index');
+        return redirect()->route('admin.product-categories.index');
     }
 
     /**
@@ -78,7 +78,7 @@ class ProductCategoryController extends Controller
         ProductCategory::find($id)->update([
             'name' => $request->name
         ]);
-        return redirect()->route('product-categories.index');
+        return redirect()->route('admin.product-categories.index');
     }
 
     /**

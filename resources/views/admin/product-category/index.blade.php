@@ -3,7 +3,7 @@
 
 @section('main')
 <div class="container">
-  <a href="{{route('product-categories.create')}}" class="btn btn-sm btn-primary">新增產品類別</a>
+  <a href="{{route('admin.product-categories.create')}}" class="btn btn-sm btn-primary">新增產品類別</a>
   <div class="container">
     <form action="">
   
@@ -21,10 +21,10 @@
                 <td>{{$category->name}}</td>
                 <td>
                   <div class="btn-group btn-group-sm" role="group">
-                    <a href="{{route('product-categories.edit', ['product_category'=> $category->id])}}" 
+                    <a href="{{route('admin.product-categories.edit', ['product_category'=> $category->id])}}" 
                       class="btn btn-sm btn-outline-primary">編輯</a>
                     <button class="btn btn-sm btn-outline-danger btn-delete" type="button"
-                      data-href="{{ route('product-categories.destroy',['product_category' => $category->id]) }}"
+                      data-href="{{ route('admin.product-categories.destroy',['product_category' => $category->id]) }}"
                     >刪除</button>
                 </div>
                 </td>
