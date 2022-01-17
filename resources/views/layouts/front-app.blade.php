@@ -21,7 +21,7 @@
     @yield('css')
 </head>
 <body>
-    <div id="app">
+    {{-- <div id="app"> --}}
         <nav class="navbar navbar-expand-md navbar-light bg-transparent py-4 shadow-sm fixed-top transition-all-1">
             <div class="container position-relative">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -41,7 +41,7 @@
                             <a class="nav-link" href="">最新消息</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('products')}}">精選產品</a>
+                            <a class="nav-link" href="{{route('products.index')}}">精選產品</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">關於我們</a>
@@ -103,7 +103,7 @@
             @yield('main')
         </main>
         <footer class="bg-dark py-4 text-center text-white"> ⓒ 2022 ttshop All Right Reserved. </footer>
-    </div>
+    {{-- </div> --}}
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>

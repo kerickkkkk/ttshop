@@ -17,7 +17,7 @@
                 <h2 class="card-header pt-3 pb-2">產品 - 新增</h2>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row py-2">
                             <label for="name" class="col-sm-2 col-form-label">標題 <span class="text-danger">*</span></label>
@@ -76,7 +76,7 @@
                         <div class="form-group row py-2">
                             <div class="col-sm-12 text-center">
                                 <button type="submit" class="btn btn-primary">新增</button>
-                                <a href="{{route('products.index')}}" class="btn btn-outline-primary">返回列表</a>
+                                <a href="{{route('admin.products.index')}}" class="btn btn-outline-primary">返回列表</a>
                             </div>
                         </div>
                     </form>
@@ -94,7 +94,7 @@
         $('#description').summernote({
             callbacks: {
                 onImageUpload: function(files) {
-                    let url = "{{route('tool.image_upload')}}";
+                    let url = "{{route('admin.tool.image_upload')}}";
 
                     let formData = new FormData();
                     formData.append('_token', '{{csrf_token()}}' );

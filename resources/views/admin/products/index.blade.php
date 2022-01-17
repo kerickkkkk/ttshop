@@ -11,7 +11,7 @@
         產品管理
       </div>
       <div class="card-body">
-        <a href="{{ route('products.create') }}" class="btn btn-sm btn-warning">新增產品</a>
+        <a href="{{ route('admin.products.create') }}" class="btn btn-sm btn-warning">新增產品</a>
         <hr>
         <div class="table-responsive">
           <table id="table" class="table table-border table-striped table-hover text-center align-middle">
@@ -36,9 +36,9 @@
                   <td>{{$product->description}}</td>
                   <td>{{$product->price}}</td>
                   <td>
-                    <a href="{{route('products.edit', ['product'=> $product->id])}}" class="btn btn-sm btn-primary">編輯</a>
+                    <a href="{{route('admin.products.edit', ['product'=> $product->id])}}" class="btn btn-sm btn-primary">編輯</a>
                     <button class="btn btn-sm btn-danger btn-delete">刪除</button>
-                    <form class="delete-form d-none" action="{{ route('products.destroy',['product' => $product->id]) }}" method="POST">
+                    <form class="delete-form d-none" action="{{ route('admin.products.destroy',['product' => $product->id]) }}" method="POST">
                       @csrf
                       @method("DELETE")
                     </form>

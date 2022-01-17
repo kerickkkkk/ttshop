@@ -21,7 +21,7 @@
                 <h2 class="card-header pt-3 pb-2">產品 - 修改</h2>
 
                 <div class="card-body">
-                    <form id="updateFrom" method="POST" action="{{ route('products.update', ['product'=> $product->id]) }}" enctype="multipart/form-data">
+                    <form id="updateFrom" method="POST" action="{{ route('admin.products.update', ['product'=> $product->id]) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH ')
                         <div class="form-group row py-2">
@@ -112,7 +112,7 @@
                         <div class="form-group row py-2">
                             <div class="col-sm-12 text-center">
                                 <button id="updateFromBtn" type="submit" class="btn btn-primary">更新</button>
-                                <a href="{{route('products.index')}}" class="btn btn-outline-primary">返回列表</a>
+                                <a href="{{route('admin.products.index')}}" class="btn btn-outline-primary">返回列表</a>
                             </div>
                         </div>
                     </form>
@@ -127,7 +127,7 @@
 <script>
     $(function(){
         $('.deleteProductImage').on('click', function () { 
-            const url = `{{route('delete-product-image')}}`
+            const url = `{{route('admin.delete-product-image')}}`
             let formData = new FormData();
             formData.append('_token','{{csrf_token()}}');
             formData.append('_method', 'DELETE')

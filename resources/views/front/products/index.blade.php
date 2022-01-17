@@ -1,6 +1,7 @@
 @extends('layouts.front-app')
 
 @section('main')
+{{-- banner --}}
 <section class="banner vh-50 mb-5">
   <div
     class="bg-cover h-100 position-relative"
@@ -10,7 +11,7 @@
     <h1 class="position-absolute top-50 start-50 translate-middle">精選產品</h1>
   </div>
 </section>
-{{-- 麵包屑 --}}
+
 <section id="products" class="container mb-5">
   <div class="row">
     <div class="col-lg-3 mb-3 sticky-top">
@@ -28,11 +29,11 @@
           <div class="col-md-4 col-6">
             <div class="card shadow-sm w-100">
               <div class="bg-cover card-img-top" 
-                    style="height: 200px; background-image: url(https://images.unsplash.com/photo-1543257580-7269da773bf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
+                    style="height: 200px; background-image: url({{Storage::url($product->image)}});">
               </div>
               <div class="card-body text-center">
                 <h5 class="card-title text-primary h6">{{$product->name}}</h5>
-                <a href="#" class="text-decoration-none stretched-link">
+                <a href="{{route('products.show',['product'=> $product->id])}}" class="text-decoration-none stretched-link">
                   <h4 class="card-title">{{$product->name}}</h4>
                 </a>
                 <hr>
@@ -46,23 +47,23 @@
       </div>
     </div>
   </div>
-  </div>
 </section>
+
 <hr class="container my-3">
 {{-- 相關產品 --}}
 <section id="relativeProduct" class="container mb-5">
-  <h3 class="text-primary text-center mb-3">相關產品</h3>
+  <h3 class="text-primary text-center mb-3">猜您也喜歡</h3>
   <div class="swiper relativeProductSwiper">
       <div class="swiper-wrapper">
         @foreach ($products as $product)
         <div class="swiper-slide">
           <div class="card shadow-sm w-100">
             <div class="bg-cover card-img-top" 
-                  style="height: 200px; background-image: url(https://images.unsplash.com/photo-1543257580-7269da773bf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);">
+                  style="height: 200px; background-image: url({{Storage::url($product->image)}});">
             </div>
             <div class="card-body text-center">
               <h5 class="card-title text-primary h6">{{$product->name}}</h5>
-              <a href="#" class="text-decoration-none stretched-link">
+              <a href="{{route('products.show', ['product'=> $product->id] )}}" class="text-decoration-none stretched-link">
                 <h4 class="card-title">{{$product->name}}</h4>
               </a>
               <hr>

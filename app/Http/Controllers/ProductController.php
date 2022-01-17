@@ -65,7 +65,7 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -131,7 +131,7 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -159,7 +159,7 @@ class ProductController extends Controller
         //     'status' => 'success',
         //     'message' => "{$product->name} 刪除成功"
         // ]);
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
 
     }
 

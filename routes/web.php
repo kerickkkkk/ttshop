@@ -27,7 +27,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
-Route::get('/products', [FrontController::class,'products'])->name('products');
+Route::prefix('products')->name('products.')->group(function(){
+    Route::get('/', [FrontController::class,'products'])->name('index');
+    Route::get('/show/{product}', [FrontController::class,'productsShow'])->name('show');
+});
 
 
 Auth::routes();
@@ -47,7 +50,9 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('admin')->middleware('admin.check')->name('admin.')->group(function()
     {
         Route::get('/', [AdminController::class,'index'])->name('index');
+
         Route::resource('/product-categories', ProductCategoryController::class)->except('show');
+
         Route::resource('/products', ProductController::class)->except('show');
         Route::delete('/delete-product-image', [ProductController::class, 'delete'])->name('delete-product-image');
 
