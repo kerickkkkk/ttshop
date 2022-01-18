@@ -65,15 +65,16 @@
                 數量：
                 <div class="input-group w-50">
                   <button data-caculate-type="minus" class="caculateBtn btn btn-outline-primary" type="button">-</button>
-                  <input min="0" type="text" class="qty form-control text-end" aria-label="Example text with button" value="1">
+                  <input min="0" max="99" type="text" class="qty form-control text-end" aria-label="Example text with button" value="1">
                   <button data-caculate-type="plus" class="caculateBtn btn btn-outline-primary" type="button">+</button>
                 </div>
               </div>
             </section>
             <section>
               <div class="text-center">
-                <a href="{{route('products.index')}}" class="btn btn-outline-primary me-2">返回列表</a>
-                <button class="sendData btn btn-primary">立即購買</button>
+                {{-- <a href="{{route('products.index')}}" class="btn btn-outline-primary me-2">返回列表</a> --}}
+                <button class="addCart btn btn-outline-primary me-2">加入購物車</button>
+                <button class="btn btn-primary">立即購買</button>
               </div>
             </section>
 
@@ -150,28 +151,29 @@ var swiper2 = new Swiper(".mySwiper2", {
     swiper: swiper,
   },
 });
+$('.addCart').on('click', submitForm)
 
 function submitForm(){
-    const id = $("[data-product-id]").data('productId')
-    const qty = $('.qty').val()
-    let formData = new FormData()
-    // {{-- const url = "{{route('shopping-cart.add')}}"; --}}
-    formData.append('_token', '{{csrf_token()}}');
-    formData.append('id', id);
-    formData.append('qty', qty);
+  const id = $("[data-product-id]").data('productId')
+  const qty = $('.qty').val()
+  let formData = new FormData()
+  const url = "{{route('carts.store')}}";
+  formData.append('_token', '{{csrf_token()}}');
+  formData.append('id', id);
+  formData.append('qty', qty);
 
-    const data = {
-      method: 'POST',
-      body: formData
-    }
-    fetch(url, data)
-      .then(res=> res.text())
-      .then(res=>{
-        alert(res);
-      })
-    
-    
+  const data = {
+    method: 'POST',
+    body: formData
   }
+  fetch(url, data)
+    .then(res=> res.text())
+    .then(res=>{
+      alert(res);
+    })
+    
+    
+}
 </script>
 
 @endsection

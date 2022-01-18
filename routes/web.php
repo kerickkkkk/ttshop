@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\FrontController;
@@ -32,6 +33,23 @@ Route::prefix('products')->name('products.')->group(function(){
     Route::get('/show/{product}', [FrontController::class,'productsShow'])->name('show');
 });
 
+Route::prefix('carts')->name('carts.')->group(function(){
+    // 測試用
+    Route::get('/content', [CartController::class, 'content'])->name('content');
+    Route::get('/clear', [CartController::class, 'clear'])->name('clear');
+    // 主要功能
+    Route::post('/store', [CartController::class, 'store'])->name('store');
+    Route::post('/update', [CartController::class, 'update'])->name('update');
+    Route::delete('/destroy', [CartController::class, 'destroy'])->name('destroy');
+
+
+    Route::get('/step01', [CartController::class, 'step01'])->name('step01.index');
+    Route::get('/step02', [CartController::class, 'step02'])->name('step02.index');
+    Route::post('/step02', [CartController::class, 'step02Store'])->name('step02.store');
+    Route::get('/step03', [CartController::class, 'step03'])->name('step03.index');
+    Route::post('/step03', [CartController::class, 'step03Store'])->name('step03.store');
+    Route::get('/step04', [CartController::class, 'step04'])->name('step04.index');
+});
 
 Auth::routes();
 
