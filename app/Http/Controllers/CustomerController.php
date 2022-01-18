@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
@@ -85,6 +87,10 @@ class CustomerController extends Controller
 
     public function profile()
     {
-        return view('customer.profile');
+        if( !is_null(Auth::user()) ){
+            $id = Auth::user()->id;
+        };
+        $orders = Order::with('orderDetails')->where('user_id', $id)->get();
+        return view('customer.profile', compact('orders'));
     }
 }

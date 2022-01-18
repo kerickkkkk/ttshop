@@ -48,7 +48,7 @@ Route::prefix('carts')->name('carts.')->group(function(){
     Route::post('/step02', [CartController::class, 'step02Store'])->name('step02.store');
     Route::get('/step03', [CartController::class, 'step03'])->name('step03.index');
     Route::post('/step03', [CartController::class, 'step03Store'])->name('step03.store');
-    Route::get('/step04', [CartController::class, 'step04'])->name('step04.index');
+    Route::get('/step04/{order_no}', [CartController::class, 'step04'])->name('step04.index');
 });
 
 Auth::routes();
