@@ -22,6 +22,7 @@
 </head>
 <body>
     {{-- <div id="app"> --}}
+        <div class="p-44"></div>
         <nav class="navbar navbar-expand-md navbar-light bg-transparent py-4 shadow-sm fixed-top transition-all-1">
             <div class="container position-relative">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -35,7 +36,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav position-md-absolute top-50 start-50 translate-middle-md">
                         <li class="nav-item">
-                            <a class="nav-link" href="">首頁</a>
+                            <a class="nav-link" href="{{route('index')}}">首頁</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">最新消息</a>
@@ -50,7 +51,7 @@
                             <a class="nav-link" href="">常見問題</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">購物車</a>
+                            <a class="nav-link" href="{{route('carts.step01.index')}}">購物車</a>
                         </li>
                     </ul>
                     

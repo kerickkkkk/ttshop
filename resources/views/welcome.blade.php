@@ -26,7 +26,7 @@
 </style>
 @endsection
 @section('main')
-    <div id="banner" class="bg-cover vh-100" 
+    <div id="banner" class="bg-cover mt-n88 vh-100" 
         style="background-image: linear-gradient(rgba(200, 200, 200, 0.6), rgba(255, 255, 255, 0.6)),
         url(https://images.unsplash.com/photo-1543257580-7269da773bf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);"
         >
