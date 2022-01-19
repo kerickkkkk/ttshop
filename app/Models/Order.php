@@ -21,6 +21,10 @@ class Order extends Model
         'is_paid'
     ];
 
+    const ISPAID = ['未付款','已付款'];
+    const PAYMENT = ['信用卡付款','貨到付款'];
+    const SHIPMENT = ['黑貓宅配','超商店到店'];
+
     public function orderDetails()
     {
         return $this->hasMany(OrderDetail::class, 'order_id', 'id');
