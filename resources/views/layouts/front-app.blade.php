@@ -18,9 +18,25 @@
     href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        #loading{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.6);
+            z-index: 9999;
+        }
+    </style>
     @yield('css')
 </head>
 <body>
+    <div id="loading">
+        <div class="position-absolute top-50 start-50 translate-middle bg-white">
+            <img src="{{asset('images/entire.gif')}}" alt="">
+        </div>
+    </div>
     {{-- <div id="app"> --}}
         <div class="p-44"></div>
         <nav class="navbar navbar-expand-md navbar-light bg-transparent py-4 shadow-sm fixed-top transition-all-1">
@@ -111,6 +127,10 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         $(function(){
+            $(window).on('load',function(){
+                $('#loading').fadeOut()
+            })
+
             $(window).on('scroll', scrollHandler)
 
 
@@ -129,6 +149,15 @@
             }
         })
     </script>
+    @if( Session::has('message'))
+        <script>
+            Swal.fire(
+                "{{session('message')}}",
+                '',
+                "{{session('status')}}"
+            )
+        </script>
+    @endif
     @yield('js')
 </body>
 </html>
