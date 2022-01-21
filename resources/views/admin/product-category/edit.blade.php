@@ -16,7 +16,7 @@
                 <h2 class="card-header pt-3 pb-2">產品類別 - 編輯</h2>
 
                 <div class="card-body">
-                    <form id="updateFrom" method="POST" action="{{ route('product-categories.update', ['product_category'=> $productCategory->id]) }}" enctype="multipart/form-data">
+                    <form id="updateFrom" method="POST" action="{{ route('admin.product-categories.update', ['product_category'=> $productCategory->id]) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH ')
                         <div class="form-group row py-2">
