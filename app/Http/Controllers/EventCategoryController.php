@@ -39,7 +39,7 @@ class EventCategoryController extends Controller
         EventCategory::create([
             'name'=> $request->name
         ]);
-        return redirect()->route('event-categories.index');
+        return redirect()->route('admin.event-categories.index');
     }
 
     /**
@@ -78,7 +78,7 @@ class EventCategoryController extends Controller
             'name' => $request->name
         ]);
 
-        return redirect()->route('event-categories.index');
+        return redirect()->route('admin.event-categories.index');
     }
 
     /**
