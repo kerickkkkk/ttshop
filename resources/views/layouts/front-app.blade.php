@@ -33,8 +33,10 @@
 </head>
 <body>
     <div id="loading">
-        <div class="position-absolute top-50 start-50 translate-middle bg-white">
-            <img src="{{asset('images/entire.gif')}}" alt="">
+        <div class="position-absolute top-50 start-50 translate-middle">
+            <div class="h1 text-white">
+                Loading...
+            </div>
         </div>
     </div>
     {{-- <div id="app"> --}}
