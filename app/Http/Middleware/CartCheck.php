@@ -17,12 +17,12 @@ class CartCheck
     public function handle(Request $request, Closure $next)
     {
         if(\Cart::isEmpty()){
-            dd(123);
-            return response()->json([
-                'success' => false,
-                'status' => 'error',
-                'message' => "請選擇商品到購物車"
-            ]);
+            return redirect()->route('products.index')
+                ->with([
+                    'success' => false,
+                    'status' => 'error',
+                    'message' => "請選擇商品到購物車"
+                ]);
         }else{
             return $next($request);
         }

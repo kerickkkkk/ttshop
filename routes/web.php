@@ -42,13 +42,14 @@ Route::prefix('carts')->name('carts.')->group(function(){
     Route::post('/update', [CartController::class, 'update'])->name('update');
     Route::delete('/destroy', [CartController::class, 'destroy'])->name('destroy');
 
-
-    Route::get('/step01', [CartController::class, 'step01'])->name('step01.index');
-    Route::get('/step02', [CartController::class, 'step02'])->name('step02.index');
-    Route::post('/step02', [CartController::class, 'step02Store'])->name('step02.store');
-    Route::get('/step03', [CartController::class, 'step03'])->name('step03.index');
-    Route::post('/step03', [CartController::class, 'step03Store'])->name('step03.store');
-    Route::get('/step04/{order_no}', [CartController::class, 'step04'])->name('step04.index');
+    Route::middleware('cart.check')->group(function(){
+        Route::get('/step01', [CartController::class, 'step01'])->name('step01.index');
+        Route::get('/step02', [CartController::class, 'step02'])->name('step02.index');
+        Route::post('/step02', [CartController::class, 'step02Store'])->name('step02.store');
+        Route::get('/step03', [CartController::class, 'step03'])->name('step03.index');
+        Route::post('/step03', [CartController::class, 'step03Store'])->name('step03.store');
+        Route::get('/step04/{order_no}', [CartController::class, 'step04'])->name('step04.index');
+    });
 });
 
 Auth::routes();

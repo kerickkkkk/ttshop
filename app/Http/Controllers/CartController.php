@@ -118,6 +118,15 @@ class CartController extends Controller
     {
         \Cart::remove($request -> id);
 
+        if(\Cart::isEmpty()){
+            return redirect()->route('products.index')
+                ->with([
+                    'success' => false,
+                    'status' => 'error',
+                    'message' => "請選擇商品到購物車"
+                ]);
+        }
+        
         return "刪除成功 產品編號： $request -> id";
     }
 
