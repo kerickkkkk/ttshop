@@ -7,7 +7,7 @@
             <div class="card">
                 <h2 class="card-header pt-3 pb-2">產品類別 - 新增</h2>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('product-categories.store') }}">
+                    <form method="POST" action="{{ route('admin.product-categories.store') }}">
                         @csrf
                         <div class="form-group row py-2">
                             <label for="name" class="col-sm-2 col-form-label">類別名稱<span class="text-danger">*</span></label>
@@ -18,7 +18,7 @@
                         <div class="form-group row py-2">
                             <div class="col-sm-12 text-center">
                                 <button type="submit" class="btn btn-primary">新增</button>
-                                <a href="{{route('product-categories.index')}}" class="btn btn-outline-primary">返回列表</a>
+                                <a href="{{route('admin.product-categories.index')}}" class="btn btn-outline-primary">返回列表</a>
                             </div>
                         </div>
                     </form>
