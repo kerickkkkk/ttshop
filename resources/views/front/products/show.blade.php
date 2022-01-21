@@ -97,7 +97,7 @@
   <div class="swiper relativeProductSwiper">
       <div class="swiper-wrapper">
         @foreach ($relativeProducts as $product)
-        <div class="swiper-slide">
+        <div class="swiper-slide mb-3">
           <div class="card shadow-sm w-100">
             <div class="bg-cover card-img-top" 
                   style="height: 200px; background-image: url({{Storage::url($product->image)}});">
