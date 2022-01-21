@@ -88,7 +88,7 @@
                             @elseif($role === 'customer')
                                 <li>
                                     <a class="nav-link" href="{{route('customer.profile')}}">
-                                        資料
+                                        會員資料
                                     </a>
                                 </li>
                             @else
