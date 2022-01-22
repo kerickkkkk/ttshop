@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminController;
@@ -25,7 +26,8 @@ use App\Http\Controllers\ProductCategoryController;
 // 前臺
 
 Route::get('/', function () {
-    return view('welcome');
+    $productCategories = ProductCategory::all();
+    return view('welcome', compact('productCategories'));
 })->name('index');
 
 Route::prefix('products')->name('products.')->group(function(){

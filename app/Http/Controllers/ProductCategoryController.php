@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use App\Models\ProductCategory;
+use Illuminate\Support\Facades\Storage;
 
 class ProductCategoryController extends Controller
 {
@@ -36,8 +37,13 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->hasFile('image')){
+            $imagePath = Storage::put('/public/productCategories', $request->image);
+        }
+
         ProductCategory::create([
-            'name' => $request->name
+            'name' => $request->name,
+            'image' => $imagePath
         ]);
 
         return redirect()->route('admin.product-categories.index');
@@ -75,8 +81,18 @@ class ProductCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        ProductCategory::find($id)->update([
-            'name' => $request->name
+        $productCategory = ProductCategory::find($id);
+
+        if($request->hasFile('image')){
+            Storage::delete($productCategory->image);
+            $imagePath = Storage::put('/public/productCategories', $request->image);
+        }else{
+            $imagePath = $productCategory->image;
+        }
+
+        $productCategory->update([
+            'name' => $request->name,
+            'image' => $imagePath
         ]);
         return redirect()->route('admin.product-categories.index');
     }
@@ -103,7 +119,8 @@ class ProductCategoryController extends Controller
             
         }
         
-        $productCategoryLinkProduct ->delete();
+        Storage::delete($productCategoryLinkProduct->image);
+        $productCategoryLinkProduct->delete();
 
         return response()->json([
             'success' => true,

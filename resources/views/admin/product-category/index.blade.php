@@ -12,6 +12,7 @@
           <thead>
               <tr>
                   <th>分類名稱</th>
+                  <th width="100">分類代表圖</th>
                   <th width="120">操作</th>
               </tr>
           </thead>
@@ -19,6 +20,13 @@
             @foreach ($productCategories as $category)
               <tr>
                 <td>{{$category->name}}</td>
+                <td>
+                  <div
+                    style="background-image: url({{ Storage::url($category->image)}});
+                      height:100px;
+                    "
+                    class="bg-cover"></div>
+                </td>
                 <td>
                   <div class="btn-group btn-group-sm" role="group">
                     <a href="{{route('admin.product-categories.edit', ['product_category'=> $category->id])}}" 

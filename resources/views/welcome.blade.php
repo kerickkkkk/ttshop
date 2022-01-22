@@ -124,29 +124,20 @@
             </div>
         </div>
         <div class="row justify-content-md-center justify-content-around">
-            <div class="col-5">
-                <div class="position-relative shadow-sm">
-                    <div class="bg-cover vh-50"
-                    style="background-image: url({{asset('images/product/candy-1.jpg')}})"
-                    >
+            @foreach ($productCategories as $productCategory)
+                <div class="col">
+                    <div class="position-relative shadow-sm">
+                        <div class="bg-cover vh-50"
+                        style="background-image: url({{Storage::url($productCategory->image)}})"
+                        >
+                        </div>
+                        <a href="" class="btn btn-outline-primary d-block border-0 text-decoration-none stretched-link">
+                            <h4 class="text-center">{{$productCategory->name}}</h4>
+                        </a>
                     </div>
-                    <a href="#" class="btn btn-outline-primary d-block border-0 text-decoration-none stretched-link">
-                        <h4 class="text-center">方塊酥</h4>
-                    </a>
                 </div>
-            </div>
-            <div class="col-5">
-                <div class="position-relative shadow-sm">
-                    <div class="bg-cover vh-50"
-                    style="background-image: url({{asset('images/product/peanut-1.jpg')}})"
-                    >
-                    </div>
-                    <a href="#" class="btn btn-outline-primary d-block border-0 text-decoration-none border-0 stretched-link">
-                        <h4 class="text-center">焙炒花生</h4>
-                    </a>
-                </div>
-            </div>
-            </div>
+            @endforeach
+
         </div>
     </section>
 

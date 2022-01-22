@@ -20,12 +20,27 @@
                         @csrf
                         @method('PATCH ')
                         <div class="form-group row py-2">
-                            <label for="name" class="col-sm-2 col-form-label">標題1</label>
+                            <label for="name" class="col-sm-2 col-form-label">標題</label>
                             <div class="col-sm-10">
                                 <input value="{{$productCategory->name}}" type="text" class="form-control" id="name" name="name" required>
                             </div>
                         </div>
-
+                        <div class="form-group row py-2">
+                            <label for="image" class="col-sm-2 col-form-label">原本類別代表圖<span class="text-danger">*</span></label>
+                            <div class="col-sm-10">
+                                <div
+                                style="background-image: url({{ Storage::url($productCategory->image)}});
+                                    width:200px; height:100px;
+                                "
+                                class="bg-cover"></div>
+                            </div>
+                        </div>
+                        <div class="form-group row py-2">
+                            <label for="image" class="col-sm-2 col-form-label">類別代表圖<span class="text-danger">*</span></label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="image" name="image" required>
+                            </div>
+                        </div>
                         <div class="form-group row py-2">
                             <div class="col-sm-12 text-center">
                                 <button id="updateFromBtn" type="submit" class="btn btn-primary">更新</button>
