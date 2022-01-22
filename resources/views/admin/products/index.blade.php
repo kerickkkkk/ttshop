@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
 @endsection
 
 @section('main')
@@ -14,7 +14,7 @@
         <a href="{{ route('admin.products.create') }}" class="btn btn-sm btn-warning">新增產品</a>
         <hr>
         <div class="table-responsive">
-          <table id="table" class="table table-border table-striped table-hover text-center align-middle">
+          <table id="dataTable" class="table table-border table-striped table-hover text-center align-middle">
             <thead>
                 <tr>
                     <th>標題</th>
@@ -58,9 +58,16 @@
 @endsection
 
 @section('js')
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
     <script>
-      $('#table').DataTable();
+      $('#dataTable').DataTable(
+        {
+          language: {
+            url: "https://cdn.datatables.net/plug-ins/1.11.4/i18n/zh_Hant.json"  
+          } 
+        }
+      )
       $('.btn-delete').each(function(i,ele){
         $(ele).on('click',function () { 
           Swal.fire({

@@ -11,7 +11,7 @@
                 <h2 class="card-header pt-3 pb-2">最新消息 - 新增</h2>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('events.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.events.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row py-2">
                             <label for="title" class="col-sm-2 col-form-label">標題
@@ -61,7 +61,7 @@
                         <div class="form-group row py-2">
                             <div class="col-sm-12 text-center">
                                 <button type="submit" class="btn btn-primary">新增</button>
-                                <a href="{{route('events.index')}}" class="btn btn-outline-primary">返回列表</a>
+                                <a href="{{route('admin.events.index')}}" class="btn btn-outline-primary">返回列表</a>
                             </div>
                         </div>
                     </form>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
 @endsection
 
 @section('main')
@@ -11,7 +11,7 @@
         最新消息管理
       </div>
       <div class="card-body">
-        <a href="{{ route('events.create') }}" class="btn btn-sm btn-warning">新增最新消息</a>
+        <a href="{{ route('admin.events.create') }}" class="btn btn-sm btn-warning">新增最新消息</a>
         <hr>
         <div class="table-responsive">
           <table id="dataTable" class="table table-border table-striped table-hover text-center align-middle">
@@ -38,9 +38,9 @@
                       {{$event->content}}
                   </td>
                   <td>
-                    <a href="{{route('events.edit', ['event'=> $event->id])}}" class="btn btn-sm btn-primary">編輯</a>
+                    <a href="{{route('admin.events.edit', ['event'=> $event->id])}}" class="btn btn-sm btn-primary">編輯</a>
                     <button class="btn btn-sm btn-danger btn-delete">刪除</button>
-                    <form class="delete-form d-none" action="{{ route('events.destroy',['event' => $event->id]) }}" method="POST">
+                    <form class="delete-form d-none" action="{{ route('admin.events.destroy',['event' => $event->id]) }}" method="POST">
                       @csrf
                       @method("DELETE")
                     </form>
@@ -60,11 +60,17 @@
 @endsection
 
 @section('js')
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js' integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==' crossorigin='anonymous'></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
     <script>
       $(document).ready(function() {
-        $('#dataTable').DataTable();
+        $('#dataTable').DataTable(
+          {
+            language: {
+              url: "https://cdn.datatables.net/plug-ins/1.11.4/i18n/zh_Hant.json"  
+            } 
+          }
+        )
         $('.btn-delete').each(function(i,ele){
         $(ele).on('click',function () { 
             Swal.fire({

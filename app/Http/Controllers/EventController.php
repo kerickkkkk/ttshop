@@ -56,7 +56,7 @@ class EventController extends Controller
             'event_category_id' => $request->event_category_id
         ]);
 
-        return redirect()->route('events.index');
+        return redirect()->route('admin.events.index');
     }
 
     /**
@@ -110,7 +110,7 @@ class EventController extends Controller
             'content' => $request->content
         ]);
 
-        return redirect()->route('events.index');
+        return redirect()->route('admin.events.index');
     }
 
     /**
@@ -124,6 +124,6 @@ class EventController extends Controller
         $event = Event::find($id);
         Storage::delete($event->image);
         $event->delete();
-        return redirect()->route('events.index');
+        return redirect()->route('admin.events.index');
     }
 }
