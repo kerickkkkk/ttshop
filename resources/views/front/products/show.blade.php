@@ -16,9 +16,21 @@
       <h2 class="mb-3 text-lg-start text-center text-primary">產品分類</h2>
       <div class="list-group flex-lg-column d-lg-flex d-block text-lg-start text-center" id="list-tab" role="tablist">
         @foreach ($productCategories as $productCategory)
-          <a class="list-group-item list-group-item-action border border-1 me-lg-0 me-2 d-lg-block d-inline-block w-lg-auto w-auto" data-category_id="{{ $productCategory->id }}" role="button">{{ $productCategory->name }}</a>
+          <a 
+            href="{{route( 'products.index',['currentCategory'=> $productCategory->id] )}}"
+            class="list-group-item list-group-item-action border border-1 me-lg-0 me-2 d-lg-block d-inline-block w-lg-auto w-auto
+            @if ($currentCategory == $productCategory->id)
+                active
+            @endif
+          " data-category_id="{{ $productCategory->id }}" role="button">{{ $productCategory->name }}</a>
         @endforeach
-        <a class="list-group-item active list-group-item-action border border-1 d-lg-block d-inline-block w-lg-auto w-auto" data-category_id="0" role="button">全部商品</a>
+        <a 
+          href="{{route( 'products.index',['currentCategory' => 'all'] )}}"
+          class="list-group-item list-group-item-action border border-1 d-lg-block d-inline-block w-lg-auto w-auto
+          @if ($currentCategory ==='all')
+            active
+          @endif
+        " data-category_id="0" role="button">全部商品</a>
       </div>
     </div>
     <div class="col-lg-9">

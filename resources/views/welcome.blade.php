@@ -97,7 +97,6 @@
             </div>
         </div>
     </section>
-    {{-- https://images.unsplash.com/photo-1559186057-001c5f061d68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80 --}}
     <section class="container-fluid bg-cover vh-50 parallax"
         style="background-image: 
             linear-gradient(to right , rgba(150, 150, 150, 0.01), rgba(0, 0, 0, 0.8)),
@@ -131,7 +130,7 @@
                         style="background-image: url({{Storage::url($productCategory->image)}})"
                         >
                         </div>
-                        <a href="" class="btn btn-outline-primary d-block border-0 text-decoration-none stretched-link">
+                        <a href="{{route('products.index',['currentCategory'=> $productCategory->id])}}" class="btn btn-outline-primary d-block border-0 text-decoration-none stretched-link">
                             <h4 class="text-center">{{$productCategory->name}}</h4>
                         </a>
                     </div>
