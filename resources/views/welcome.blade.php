@@ -9,7 +9,6 @@
     .swiper-slide {
         text-align: center;
         font-size: 18px;
-        background: #fff;
 
         /* Center slide text vertically */
         display: flex;
@@ -64,13 +63,19 @@
         </div>
     </div>
     {{-- 促銷內容 --}}
-    <div id="sale" class="p-3">
+    <div id="sale" class="p-5">
         {{-- 輪播方式 --}}
         <div class="swiper saleSwiper">
             <div class="swiper-wrapper">
-                <div style="background-image: url();" class="swiper-slide bg-cover vh-25">促銷內容一</div>
-                <div style="background-image: url();" class="swiper-slide bg-cover vh-25">促銷內容二</div>
-                <div style="background-image: url();" class="swiper-slide bg-cover vh-25">促銷內容三</div>
+                @foreach ($eventSales as $event)
+                    <div style="background-image: linear-gradient(rgba(200, 200, 200, 0.3), rgba(255, 255, 255, 0.6)), url({{Storage::url($event->image)}});" class="swiper-slide bg-cover vh-25">
+                        <a href="{{route('events.show',['event'=> $event->id])}}" class="text-secondary bg-dark p-3 text-decoration-none btn btn-primary border-0 stretched-link">
+                            <div class="h1">
+                                {{$event->title}}
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

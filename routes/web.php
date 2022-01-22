@@ -29,7 +29,8 @@ use App\Http\Controllers\ProductCategoryController;
 Route::get('/', function () {
     $productCategories = ProductCategory::all();
     $events = Event::all();
-    return view('welcome', compact('productCategories','events'));
+    $eventSales = Event::where('event_category_id', 1)->get();
+    return view('welcome', compact('productCategories','events','eventSales'));
 })->name('index');
 
 Route::prefix('products')->name('products.')->group(function(){

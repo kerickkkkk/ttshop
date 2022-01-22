@@ -3,6 +3,8 @@
 img {
   max-width: 100%;
   height: auto;
+  -o-object-fit: center;
+     object-fit: center;
 }
 
 .bg-cover {
