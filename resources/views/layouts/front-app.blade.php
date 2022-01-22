@@ -98,9 +98,13 @@
                                     @php
                                         $role = Auth::user()->role ?? null;
                                     @endphp
-                                    @if($role === 'customer')
-                                        <a class="dropdown-item" href="{{ route('customer.profile') }}">會員資料</a>
-                                    @endif
+                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                        @if($role === 'customer')
+                                            會員資料
+                                        @elseif($role === 'admin')
+                                            管理介面
+                                        @endif
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
