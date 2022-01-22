@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Event;
 use App\Models\ProductCategory;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
@@ -27,12 +28,18 @@ use App\Http\Controllers\ProductCategoryController;
 
 Route::get('/', function () {
     $productCategories = ProductCategory::all();
-    return view('welcome', compact('productCategories'));
+    $events = Event::all();
+    return view('welcome', compact('productCategories','events'));
 })->name('index');
 
 Route::prefix('products')->name('products.')->group(function(){
     Route::get('/', [FrontController::class,'products'])->name('index');
     Route::get('/show/{product}', [FrontController::class,'productsShow'])->name('show');
+});
+
+Route::prefix('events')->name('events.')->group(function(){
+    Route::get('/', [FrontController::class,'events'])->name('index');
+    Route::get('/show/{event}', [FrontController::class,'eventsShow'])->name('show');
 });
 
 Route::prefix('carts')->name('carts.')->group(function(){

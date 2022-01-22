@@ -57,7 +57,7 @@
                             <a class="nav-link" href="{{route('index')}}">首頁</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">最新消息</a>
+                            <a class="nav-link" href="{{route('events.index')}}">最新消息</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('products.index')}}">精選產品</a>

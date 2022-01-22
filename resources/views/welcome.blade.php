@@ -192,73 +192,38 @@
                 <p>
                     最新的促銷活動，公告都在這。
                 </p>
-                <a href="" class="btn btn-primary">
+                <a href="{{route('events.index')}}" class="btn btn-primary">
                     查看更多
                 </a>
             </div>
             <div class="col-md-9">
                 <div class="swiper newsSwiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="card w-100">
-                                <div class="img vh-25 bg-cover"
-                                    style="background-image: url({{asset('images/product/candy-1.jpg')}});"
-                                >
-
+                        @foreach ($events as $event)
+                            <div class="swiper-slide">
+                                <div class="card shadow-sm w-100">
+                                <div class="bg-cover card-img-top" 
+                                        style="height: 200px; background-image: url({{Storage::url($event->image)}});">
                                 </div>
-                                {{-- <img src="{{asset('images/product/candy-1.jpg')}}" class="card-img-top vh-25" alt="..."> --}}
                                 <div class="card-body">
-                                    <h5 class="card-title">滿千送百</h5>
-                                    <p class="card-text">內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
-                                    <a href="#" class="btn btn-outline-primary stretched-link">看詳細</a>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <h3 class="card-title text-primary">{{$event->title}}</h3>
+   
+                                    <h5 class="card-title text-primary h6">{{$event->eventCategory->name}}</h5>
+                                    </div>
+                                    <hr>
+                                    <p class="text-muted">{{$event->date}}</p>
+                                    <p>
+                                    {{$event->content}}
+                                    </p>
+
+                                    <a href="{{route('events.show',['event'=> $event->id])}}" class="text-decoration-none btn btn-primary stretched-link">
+                                        查看詳細
+                                    </a>
+                                </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card w-100">
-                                <div class="img vh-25 bg-cover"
-                                    style="background-image: url({{asset('images/product/peanut-1.jpg')}});"
-                                >
-
-                                </div>
-                                {{-- <img src="{{asset('images/product/candy-1.jpg')}}" class="card-img-top vh-25" alt="..."> --}}
-                                <div class="card-body">
-                                    <h5 class="card-title">滿千送百</h5>
-                                    <p class="card-text">內容內容內容內容內容內容內容內容內容內容</p>
-                                    <a href="#" class="btn btn-outline-primary stretched-link">看詳細</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card w-100">
-                                <div class="img vh-25 bg-cover"
-                                    style="background-image: url({{asset('images/product/peanut-1.jpg')}});"
-                                >
-
-                                </div>
-                                {{-- <img src="{{asset('images/product/candy-1.jpg')}}" class="card-img-top vh-25" alt="..."> --}}
-                                <div class="card-body">
-                                    <h5 class="card-title">滿千送百</h5>
-                                    <p class="card-text">內容內容內容內容內容內容內容內容內容內容</p>
-                                    <a href="#" class="btn btn-outline-primary stretched-link">看詳細</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card w-100">
-                                <div class="img vh-25 bg-cover"
-                                    style="background-image: url({{asset('images/product/peanut-1.jpg')}});"
-                                >
-
-                                </div>
-                                {{-- <img src="{{asset('images/product/candy-1.jpg')}}" class="card-img-top vh-25" alt="..."> --}}
-                                <div class="card-body">
-                                    <h5 class="card-title">滿千送百</h5>
-                                    <p class="card-text">內容內容內容內容內容內容內容內容內容內容</p>
-                                    <a href="#" class="btn btn-outline-primary stretched-link">看詳細</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
