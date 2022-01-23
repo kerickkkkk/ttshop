@@ -38,6 +38,10 @@ Route::prefix('products')->name('products.')->group(function(){
     Route::get('/show/{product}', [FrontController::class,'productsShow'])->name('show');
 });
 
+Route::prefix('about')->name('about.')->group(function(){
+    Route::get('/', [FrontController::class,'about'])->name('index');
+});
+
 Route::prefix('events')->name('events.')->group(function(){
     Route::get('/', [FrontController::class,'events'])->name('index');
     Route::get('/show/{event}', [FrontController::class,'eventsShow'])->name('show');

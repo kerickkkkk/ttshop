@@ -59,4 +59,9 @@ class FrontController extends Controller
         $relativeEvents = Event::where('event_category_id', $event->event_category_id)->get();
         return view('front.events.show', compact('event','eventCategories' ,'relativeEvents','currentCategory'));
     }
+    // 關於我們
+    public function about()
+    {
+        return view('front.about.index');
+    }
 }

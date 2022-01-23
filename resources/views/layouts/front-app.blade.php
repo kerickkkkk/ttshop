@@ -63,7 +63,7 @@
                             <a class="nav-link" href="{{route('products.index')}}">精選產品</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">關於我們</a>
+                            <a class="nav-link" href="{{route('about.index')}}">關於我們</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="">常見問題</a>
