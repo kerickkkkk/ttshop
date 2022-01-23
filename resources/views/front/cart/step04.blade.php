@@ -28,7 +28,7 @@
 
 @section('main')
 
-<div class="p-5 bg-secondary">
+<div class="p-5 bg-secondary min-vh-100">
   <div class="container">
     <div class="card">
       <div class="card-body">

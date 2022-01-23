@@ -28,7 +28,7 @@
 
 @section('main')
 
-<div class="p-5 bg-secondary">
+<div class="p-5 bg-secondary min-vh-100">
   <div class="container">
     <div class="card">
       <div class="card-body">
@@ -42,8 +42,8 @@
           @foreach ($cart as $item)
             <li class="orderList__item d-flex justify-content-between">
               <div class="orderList__item__detail d-flex align-items-center" data-product-id="{{$item->id}}">
-                <button class="deleteBtn btn btn-sm mr-3 btn-outline-danger rounded-circle">X</button>
-                <img src="{{ Storage::url($item->attributes->image)}}" alt="" class="rounded-circle order__img mr-2">
+                <button class="deleteBtn btn btn-sm me-3 btn-outline-danger rounded-circle">X</button>
+                <img src="{{ Storage::url($item->attributes->image)}}" width="100" alt="" class="rounded-circle me-2">
                 <div>
                   <h4 class="h6 mb-0">{{$item->name}}</h4>
                   <span class="text-muted">#6554</span>
