@@ -32,30 +32,34 @@
   <div class="container">
     <div class="card">
       <div class="card-body">
-        <h2 class="card-title">購物車</h2>
 
         @include('front.cart.cart-header', ['step'=> 1])
-
         <hr>
-        <h3>訂單明細</h3>
+        <h3>購物車</h3>
         <ul id="orderList">
           @foreach ($cart as $item)
-            <li class="orderList__item d-flex justify-content-between">
-              <div class="orderList__item__detail d-flex align-items-center" data-product-id="{{$item->id}}">
-                <button class="deleteBtn btn btn-sm me-3 btn-outline-danger rounded-circle">X</button>
-                <img src="{{ Storage::url($item->attributes->image)}}" width="100" alt="" class="rounded-circle me-2">
+            <li class="orderList__item row justify-content-between mb-3">
+              <div class="orderList__item__detail col-md-6 d-flex align-items-center mb-2" data-product-id="{{$item->id}}">
+                <button class="deleteBtn btn btn-sm me-3 btn-outline-danger border-0 ms-md-1 ms-auto order-md-0 order-1">X</button>
+                <img src="{{ Storage::url($item->attributes->image)}}" width="100" alt="" class="me-2">
                 <div>
                   <h4 class="h6 mb-0">{{$item->name}}</h4>
-                  <span class="text-muted">#6554</span>
                 </div>
               </div>
-              <div class="orderList__item__price d-flex">
+              <div class="orderList__item__price col-md-6 d-flex">
+                <div class="d-none d-md-flex align-items-md-center">
+                  ${{number_format( $item->price)}} 
+                </div>
                 <div class="inputGroup d-flex align-items-center" data-product-id="{{$item->id}}">
                   <button class="caculate_btn inputGroup__button btn" data-type="minus"> - </button>
-                  <input readonly min="1" value="{{$item->quantity}}" class="qty form-control" type="number">
+                  <input readonly min="1" value="{{$item->quantity}}" class="qty form-control text-end" type="number">
                   <button class="caculate_btn inputGroup__button btn" data-type="plus"> + </button>
                 </div>
-                <div class="totalPrice d-flex align-items-center" data-single="{{$item->price}}">
+                <div class="totalPrice d-md-flex align-items-md-center ms-auto" data-single="{{$item->price}}">
+                  <div class="d-md-none">
+                    ${{number_format( $item->price)}} 
+                    <br>
+                  </div>
                   ${{number_format($item->quantity * $item->price)}}
                 </div>
               </div>

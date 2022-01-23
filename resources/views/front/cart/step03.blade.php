@@ -32,15 +32,11 @@
   <div class="container">
     <div class="card">
       <div class="card-body">
-        <h2 class="card-title">購物車</h2>
-        
         @include('front.cart.cart-header', ['step'=> 3])
-
         <hr>
         <h3>寄送資料</h3>
         <form action="{{route('carts.step03.store')}}" method="POST">
           @csrf
-
           <div class="form-group">
             <label for="name">姓名</label>
             <input type="text" name="name" class="form-control" id="name" value="王小明" placeholder="王小明">

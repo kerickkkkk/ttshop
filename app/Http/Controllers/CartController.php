@@ -173,6 +173,8 @@ class CartController extends Controller
             'address' => $request->address,
             'payment' => session('payment'),
             'shipment' => session('shipment'),
+            // 接金流在改掉
+            'is_paid' => session('payment'),
         ]);
 
         $items = \Cart::getContent();
@@ -189,13 +191,14 @@ class CartController extends Controller
             ]);
         }
 
-        // \Cart::clear();
         
         return redirect()->route('carts.step04.index', ['order_no'=> $order->order_no]);
     }
     
     public function step04($orderNo)
     {
+        \Cart::clear();
+
         $order = Order::with('orderDetails')->where('order_no', $orderNo)->first();
         return view('front.cart.step04', compact('order'));
     }

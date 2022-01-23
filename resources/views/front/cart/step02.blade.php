@@ -31,55 +31,55 @@
   <div class="container">
     <div class="card">
       <div class="card-body">
-        <h2 class="card-title">購物車</h2>
-
         @include('front.cart.cart-header', ['step'=> 2])
-        
         <hr>
         <form id="step02Form" action="{{route('carts.step02.store')}}" method="post">
           @csrf
-          <h4>付款方式</h3>
-            <ul class="payMethod px-3">
-              <li class="py-3 border-bottom">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="payment" id="blackcat" value="0" checked>
-                  <label class="form-check-label" for="blackcat">信用卡付款</label>
-                </div>
-              </li>
-              <li class="py-3 border-bottom">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="payment" id="shoptoshop" value="1">
-                  <label class="form-check-label" for="shoptoshop">網路 ATM</label>
-                </div>
-              </li>
-              <li class="py-3">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="payment" id="shoptoshopshop" value="2">
-                  <label class="form-check-label" for="shoptoshopshop">超商代碼</label>
-                </div>
-              </li>
-            </ul>
+          <h4>付款方式</h4>
+          <ul class="payMethod list-unstyled px-3">
+            <li class="py-3 border-bottom">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment" id="resive" value="0" checked>
+                <label class="form-check-label" for="resive">貨到付款</label>
+              </div>
+            </li>
+            <li class="py-3 border-bottom">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment" id="blackcat" value="1" checked>
+                <label class="form-check-label" for="blackcat">信用卡付款</label>
+              </div>
+            </li>
+            {{-- <li class="py-3 border-bottom">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment" id="shoptoshop" value="1">
+                <label class="form-check-label" for="shoptoshop">網路 ATM</label>
+              </div>
+            </li> --}}
+            {{-- <li class="py-3">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="payment" id="shoptoshopshop" value="2">
+                <label class="form-check-label" for="shoptoshopshop">超商代碼</label>
+              </div>
+            </li> --}}
+          </ul>
           <hr>
           <h4>運送方式</h3>
-            <ul class="shipMethod px-3">
+            <ul class="shipMethod list-unstyled px-3">
               <li class="py-3 border-bottom">
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="shipment" id="shipment1" value="0" checked>
                   <label class="form-check-label" for="shipment1">黑貓宅配</label>
                 </div>
               </li>
-              <li class="py-3">
+              {{-- <li class="py-3">
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="shipment" id="shipment2" value="1">
                   <label class="form-check-label" for="shipment2">超商店到店</label>
                 </div>
-              </li>
+              </li> --}}
             </ul>
           <hr>
           @include('front.cart.cart-footer-total')
-
-
-          </div>
           <hr>
           <div class="d-flex justify-content-between py-3">
             <a href="{{route('carts.step01.index')}}" class="btn btn-outline-primary">上一步</a>

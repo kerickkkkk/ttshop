@@ -22,8 +22,8 @@ class Order extends Model
     ];
 
     const ISPAID = ['未付款','已付款'];
-    const PAYMENT = ['信用卡付款','貨到付款'];
-    const SHIPMENT = ['黑貓宅配','超商店到店'];
+    const PAYMENT = ['貨到付款','信用卡付款'];
+    const SHIPMENT = ['黑貓宅配'];
 
     public function orderDetails()
     {
