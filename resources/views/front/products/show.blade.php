@@ -11,7 +11,7 @@
   </div>
 </section>
 <section id="products" class="container mb-5">
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-lg-3 mb-3 sticky-top">
       <h2 class="mb-3 text-lg-start text-center text-primary">產品分類</h2>
       <div class="list-group flex-lg-column d-lg-flex d-block text-lg-start text-center" id="list-tab" role="tablist">
@@ -37,10 +37,15 @@
       <div class="card flex-md-row" data-product-id="{{$product->id}}">
         <div class="col-md-5 mb-md-0 mb-3">
           <div
-          style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
           class="swiper mySwiper2"
         >
           <div class="swiper-wrapper mb-3">
+            <div class="swiper-slide">
+              <div class="img bg-cover" 
+                style="background-image: url({{Storage::url($product->image)}}); height: 300px;">
+
+              </div>
+            </div>
             @foreach ($product->productImages as $image)
               <div class="swiper-slide">
                 <div class="img bg-cover" 
@@ -56,6 +61,12 @@
         </div>
         <div thumbsSlider="" class="swiper mySwiper">
           <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="img bg-cover" 
+                style="background-image: url({{Storage::url($product->image)}}); height: 100px;">
+
+              </div>
+            </div>
             @foreach ($product->productImages as $image)
             <div class="swiper-slide">
               <div class="img bg-cover" 
@@ -76,9 +87,21 @@
               <div class="d-flex align-items-center mb-3">
                 數量：
                 <div class="input-group w-50">
-                  <button data-caculate-type="minus" class="caculateBtn btn btn-outline-primary" type="button">-</button>
+                  {{-- <button data-caculate-type="minus" class="caculateBtn btn btn-outline-primary" type="button">-</button>
                   <input min="0" max="99" type="text" class="qty form-control text-end" aria-label="Example text with button" value="1">
-                  <button data-caculate-type="plus" class="caculateBtn btn btn-outline-primary" type="button">+</button>
+                  <button data-caculate-type="plus" class="caculateBtn btn btn-outline-primary" type="button">+</button> --}}
+                  <select class="qty form-select" name="qty">
+                    <option value="1" selected>1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
                 </div>
               </div>
             </section>
@@ -96,9 +119,18 @@
       </div>   
     </div>
   </div>
-  <div class="row">
-    產品說明
-    {!! $product->description !!}
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="pills-description-tab" data-bs-toggle="pill" data-bs-target="#pills-description" type="button" role="tab" aria-controls="pills-description" aria-selected="true">
+        產品說明
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+      {!! $product->description !!}
+    </div>
+
   </div>
 </section>
 <hr class="container my-3">

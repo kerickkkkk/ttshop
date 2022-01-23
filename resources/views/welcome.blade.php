@@ -44,7 +44,7 @@
                                     泡好一壺熱茶，配上童年的那份回憶，心裡都暖了起來！
                                 </span>
                             </p>
-                            <a class="btn btn-primary">立即前往 >> </a>
+                            <a href="{{route('products.index')}}" class="btn btn-primary">立即前往 >> </a>
                         </div>
                     </div>
                     <div class="position-absolute bottom-0 fs-1 bounce start-25 translate-middle opacity-50">
@@ -96,7 +96,7 @@
                     <p>
                         從小就在田野中長大的鄕下孩子，扣除上學的時間外，孩提的記憶中都是在田野或是三合院度過，手上拿著東西不是鉛筆或是GAME BOY，而是...
                     </p>
-                    <a href="" class="btn btn-primary">關於我們...</a>
+                    <a href="{{route('about.index')}}" class="btn btn-primary">關於我們...</a>
                 </div>
                 {{-- <div class="col-md-4 bg-primary-light"></div> --}}
             </div>
@@ -124,7 +124,7 @@
                     經驗豐富的老師傅，將生花生在高溫的翻炒下，讓花生本身內部產生的變化，提香後，把握黃金的時程，將香氣鎖住，
                     無需防腐劑，無添加甜味劑，讓您輕鬆無負擔。
                 </p>
-                <a href="#" class="btn btn-primary">立即查看</a>
+                <a href="{{route('products.index')}}" class="btn btn-primary">立即查看</a>
             </div>
         </div>
         <div class="row justify-content-md-center justify-content-around">

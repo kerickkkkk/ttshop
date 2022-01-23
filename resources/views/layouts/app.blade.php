@@ -29,7 +29,7 @@
         
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand font-festive" href="{{ url('/admin/home') }}">
+                <a class="navbar-brand font-festive" href="{{route('home') }}">
                     {{ config('app.name', 'Laravel') }} 
                     @guest
                     @else
