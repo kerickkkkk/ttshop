@@ -35,7 +35,7 @@
                     <div class="row flex-column justify-content-center h-100">
                         <div class="pt-5">
                             <h2 class="h1 fw-bold">
-                                <span class="bg-light lh-lg d-inline-block">
+                                <span class="bg-light text-primary lh-lg d-inline-block">
                                     來塊花生糖
                                 </span>
                             </h2>

@@ -9,7 +9,9 @@
 
     <title>{{ config('app.name', 'ttshop') }}</title>
 
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -28,13 +30,16 @@
             background-color: rgba(0,0,0,.6);
             z-index: 9999;
         }
+        .font-festive{
+            font-family: 'Festive', cursive;
+        }
     </style>
     @yield('css')
 </head>
 <body>
     <div id="loading">
         <div class="position-absolute top-50 start-50 translate-middle">
-            <div class="h1 text-white">
+            <div class="h1 text-white font-festive">
                 Loading...
             </div>
         </div>
@@ -43,7 +48,7 @@
         <div class="p-44"></div>
         <nav class="navbar navbar-expand-md navbar-light bg-transparent py-4 shadow-sm fixed-top transition-all-1">
             <div class="container position-relative">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand font-festive" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,16 +62,16 @@
                             <a class="nav-link" href="{{route('index')}}">首頁</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('events.index')}}">最新消息</a>
+                            <a class="nav-link" href="{{route('about.index')}}">關於我們</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('products.index')}}">精選產品</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('about.index')}}">關於我們</a>
+                            <a class="nav-link" href="{{route('events.index')}}">最新消息</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">常見問題</a>
+                            <a class="nav-link" href="{{route('faq.index')}}">常見問題</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('carts.step01.index')}}">購物車</a>

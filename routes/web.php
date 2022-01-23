@@ -47,6 +47,10 @@ Route::prefix('events')->name('events.')->group(function(){
     Route::get('/show/{event}', [FrontController::class,'eventsShow'])->name('show');
 });
 
+Route::prefix('faq')->name('faq.')->group(function(){
+    Route::get('/', [FrontController::class,'faq'])->name('index');
+});
+
 Route::prefix('carts')->name('carts.')->group(function(){
     // 測試用
     Route::get('/content', [CartController::class, 'content'])->name('content');

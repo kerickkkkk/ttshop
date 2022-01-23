@@ -8,9 +8,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'ttshop') }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Festive&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .font-festive{
+            font-family: 'Festive', cursive;
+        }
+    </style>
     @yield('css')
 </head>
 <body>
@@ -21,7 +29,7 @@
         
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/admin/home') }}">
+                <a class="navbar-brand font-festive" href="{{ url('/admin/home') }}">
                     {{ config('app.name', 'Laravel') }} 
                     @guest
                     @else
