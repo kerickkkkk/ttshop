@@ -46,7 +46,7 @@
                     style="height: 200px; background-image: url({{Storage::url($product->image)}});">
               </div>
               <div class="card-body text-center">
-                <h5 class="card-title text-primary h6">{{$product->name}}</h5>
+                <h5 class="card-title text-primary h6">{{$product->productCategory->name}}</h5>
                 <a href="{{route('products.show',['product'=> $product->id])}}" class="text-decoration-none stretched-link">
                   <h4 class="card-title">{{$product->name}}</h4>
                 </a>
