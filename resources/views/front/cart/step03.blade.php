@@ -64,7 +64,9 @@
         <hr>
         <div class="d-flex justify-content-between py-3">
           <a href="{{route('carts.step02.index')}}" class="btn btn-outline-primary">上一步</a>
-          <button class="payBtn btn btn-primary">前往付款</button>
+          <button class="payBtn btn btn-primary">
+            {{session('payment') ? '前往付款' : '送出'}}
+          </button>
         </div>
       </div>
     </div>
