@@ -2,6 +2,7 @@
 
 use App\Models\Event;
 use App\Models\ProductCategory;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\AdminController;
