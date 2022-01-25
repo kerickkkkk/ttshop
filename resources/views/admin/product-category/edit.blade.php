@@ -36,9 +36,9 @@
                             </div>
                         </div>
                         <div class="form-group row py-2">
-                            <label for="image" class="col-sm-2 col-form-label">類別代表圖<span class="text-danger">*</span></label>
+                            <label for="image" class="col-sm-2 col-form-label">更新類別代表圖</label>
                             <div class="col-sm-10">
-                                <input type="file" class="form-control" id="image" name="image" required>
+                                <input type="file" class="form-control" id="image" name="image">
                             </div>
                         </div>
                         <div class="form-group row py-2">
