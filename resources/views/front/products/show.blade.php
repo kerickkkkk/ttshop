@@ -109,7 +109,7 @@
               <div class="text-center">
                 {{-- <a href="{{route('products.index')}}" class="btn btn-outline-primary me-2">返回列表</a> --}}
                 <button class="addCart btn btn-outline-primary me-2">加入購物車</button>
-                <button class="btn btn-primary">立即購買</button>
+                {{-- <button class="btn btn-primary">立即購買</button> --}}
               </div>
             </section>
 
@@ -211,12 +211,19 @@ function submitForm(){
     body: formData
   }
   fetch(url, data)
-    .then(res=> res.text())
-    .then(res=>{
-      alert(res);
+    .then(res=> res.json())
+    .then(({success,status,message,totalQty })=>{
+      if(success){
+        Swal.fire(
+          `${message}`,
+          '',
+          `${status}`,
+          ).then(res=>{
+            console.log(totalQty);
+            $('#totalQty').text(totalQty);
+          })
+      }
     })
-    
-    
 }
 </script>
 

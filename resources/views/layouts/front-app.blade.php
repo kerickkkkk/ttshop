@@ -74,7 +74,13 @@
                             <a class="nav-link" href="{{route('faq.index')}}">常見問題</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('carts.step01.index')}}">購物車</a>
+                            <a class="nav-link position-relative" href="{{route('carts.step01.index')}}">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span id="totalQty" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{\Cart::getTotalQuantity()}}
+                                    {{-- <span class="visually-hidden">unread messages</span> --}}
+                                </span>
+                            </a>
                         </li>
                     </ul>
                     

@@ -61,8 +61,13 @@ class CartController extends Controller
                 'image' => $product->image
             ]
         ));
-
-        return 'addCart success';
+        $msg = [
+            'success' => true,
+            'status' => 'success',
+            'message' => "加入購物車成功",
+            'totalQty' => \Cart::getTotalQuantity()
+        ];
+        return $msg ;
     }
 
     /**

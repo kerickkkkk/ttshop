@@ -38,23 +38,31 @@
         <form action="{{route('carts.step03.store')}}" method="POST">
           @csrf
           <div class="form-group">
-            <label for="name">姓名</label>
-            <input type="text" name="name" class="form-control" id="name" value="王小明" placeholder="王小明">
+            <label for="name">姓名
+              <span class="text-danger">*</span>
+            </label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="小楊" required>
           </div>
           <div class="form-group">
-            <label for="phone">電話</label>
-            <input type="tel" name="phone" class="form-control" id="phone" value="0123456789" placeholder="0123456789">
+            <label for="phone">電話
+              <span class="text-danger">*</span>
+            </label>
+            <input type="tel" name="phone" class="form-control" id="phone" placeholder="0900000000" required>
           </div>
           <div class="form-group">
-            <label for="email">信箱</label>
-            <input type="email" name="email" class="form-control" id="email" value="abc123@gmail.com" placeholder="abc123@gmail.com">
+            <label for="email">信箱
+              <span class="text-danger">*</span>
+            </label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="yan@mail.com" required>
           </div>
           <div class="form-row">
             <div class="col-12">
-              <label class="d-bl">地址</label>
+              <label class="d-bl">地址
+              <span class="text-danger">*</span>
+              </label>
             </div>
             <div class="form-group col-12">
-              <input type="text" name="address" class="form-control" value="地址地址地址地址地址地址地址" placeholder="地址">
+              <input type="text" name="address" class="form-control" placeholder="地址" required>
             </div>           
           </div>
           <button hidden  class="hideBtn"></button>

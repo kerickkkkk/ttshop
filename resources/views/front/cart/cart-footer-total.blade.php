@@ -25,7 +25,7 @@
       <div class="d-flex justify-content-between">
         <span>運費:</span>
         <span id="shipment" class="font-weight-bold">
-          ${{number_format(60)}}
+          ${{number_format(0)}}
         </span>
       </div>
     </div>
@@ -37,7 +37,7 @@
         <span id="total" class="font-weight-bold">
           ${{ 
             number_format( 
-              ($subTotal ?? \Cart::getTotal()  ) + 60
+              ($subTotal ?? \Cart::getTotal()  )
             ) 
           }}
           {{-- ${{ 
