@@ -144,9 +144,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         $(function(){
-            $(window).on('load',function(){
+            // $(window).on('load',function(){
                 $('#loading').fadeOut()
-            })
+            // })
 
             $(window).on('scroll', scrollHandler)
 
