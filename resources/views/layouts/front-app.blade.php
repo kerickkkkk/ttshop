@@ -136,7 +136,7 @@
             @yield('content')
             @yield('main')
         </main>
-        <footer class="bg-dark py-4 text-center text-white"> ⓒ 2022 ttshop All Right Reserved. </footer>
+        <footer class="bg-dark py-4 text-center text-white"> ⓒ 2022 ttshop All Right Reserved. only for practice. </footer>
     {{-- </div> --}}
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
