@@ -27,7 +27,7 @@
 @section('main')
     <div id="banner" class="bg-cover mt-n88 vh-100" 
         style="background-image: linear-gradient(rgba(200, 200, 200, 0.6), rgba(255, 255, 255, 0.6)),
-        url(https://images.unsplash.com/photo-1543257580-7269da773bf5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);"
+        url({{asset('images/pics/pic-4.jpg')}});"
         >
         <div class="container">
             <div class="row justify-content-between">
@@ -81,7 +81,7 @@
     </div>
     <section id="story"
         class="py-5 bg-cover"
-        style="background-image: linear-gradient(to right , rgba(150, 150, 150, 0.6), rgba(0, 0, 0, 0.8)),url(https://images.unsplash.com/photo-1559186057-001c5f061d68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);"
+        style="background-image: linear-gradient(to right , rgba(150, 150, 150, 0.6), rgba(0, 0, 0, 0.8)),url({{asset('images/pics/pic-5.jpg')}});"
     >
         <div  class="container" >
             <div class="row position-relative align-items-center">
@@ -105,7 +105,7 @@
     <section class="container-fluid bg-cover vh-50 parallax"
         style="background-image: 
             linear-gradient(to right , rgba(150, 150, 150, 0.01), rgba(0, 0, 0, 0.8)),
-                url(https://images.unsplash.com/photo-1594158582948-79c18b9ed27c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80);"
+                url({{asset('images/pics/pic-1.jpg')}});"
         >
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-md-6">

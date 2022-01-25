@@ -5,7 +5,7 @@
   <div
     class="bg-cover h-100 position-relative"
     style="background-image: linear-gradient(to bottom , rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.8)),
-      url(https://images.unsplash.com/photo-1559186057-001c5f061d68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);"
+      url({{asset('images/pics/pic-8.jpg')}});"
   >
     <h1 class="position-absolute top-50 start-50 translate-middle">關於我們</h1>
   </div>
@@ -13,7 +13,7 @@
 <section class="container">
   <div class="row my-5">
     <div class="col-md-5">
-      <img src="{{asset('images/index/about-1.jpeg')}}" alt="創立初衷">
+      <img src="{{asset('images/index/about-1.jpg')}}" alt="創立初衷">
     </div>
     <div class="col-md-7">
       <h2 class="text-primary">創立初衷</h2>
