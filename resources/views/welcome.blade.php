@@ -86,7 +86,7 @@
         <div  class="container" >
             <div class="row position-relative align-items-center">
                 <div class="offset-md-1 col-md-4">
-                    <div style="background-image: url({{asset('images/index/about-1.jpeg')}})" class="bg-cover vh-50">
+                    <div style="background-image: url({{asset('images/index/about-1.jpg')}})" class="bg-cover vh-50">
                     </div>
                 </div>
                 <div class="offset-md-1 col-md-4 col-6 align-self-md-center pt-md-5 position-md-static position-absolute top-50 start-50 translate-middle-md-none translate-middle text-md-light text-dark text-md-start text-center">
