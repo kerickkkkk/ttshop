@@ -9,7 +9,6 @@
   @php
     use App\Models\Order;
   @endphp
-  @foreach ($orders as $order)
     <table id="dataTable" class="table table-striped table-sm mb-4">
       <thead class="thead-dark">
         <tr>
@@ -22,8 +21,8 @@
         </tr>
       </thead>
       <tbody>
+        @foreach ($orders as $order)
           <tr>
-
             <td>{{ $order->order_no }}</td>
             <td>{{ date_format($order->created_at, 'Y-m-d') }}</td>
             <td>
@@ -45,9 +44,9 @@
             <td>{{ Order::PAYMENT[$order->payment] }}</td>
             <td>{{ Order::SHIPMENT[$order->shipment] }}</td>
           </tr>
+        @endforeach
       </tbody>
     </table>
-  @endforeach
 </div>
 @endsection
 
