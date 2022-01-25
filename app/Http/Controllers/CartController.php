@@ -166,9 +166,10 @@ class CartController extends Controller
 
     public function step03Store(Request $request)
     {
-        if( !is_null(Auth::user()) ){
-            $id = Auth::user()->id;
-        };
+        // dd( is_null(Auth::user()));
+        // if( !is_null(Auth::user()) ){
+            $id = is_null(Auth::user()) ? null : Auth::user()->id;
+        // };
         $order = Order::create([
             'order_no' => 'DP' . time(),
             'user_id' => $id,
