@@ -42,18 +42,52 @@
         @foreach ($products as $product)
           <div class="col-md-4 col-6 mb-3">
             <div class="card shadow-sm w-100">
+
               <div class="bg-cover card-img-top" 
                     style="height: 200px; background-image: url({{Storage::url($product->image)}});">
               </div>
               <div class="card-body text-center">
                 <h5 class="card-title text-primary h6">{{$product->productCategory->name}}</h5>
-                <a href="{{route('products.show',['product'=> $product->id])}}" class="text-decoration-none stretched-link">
                   <h4 class="card-title">{{$product->name}}</h4>
-                </a>
                 <hr>
                 <p>NT$ 
                   <span class="fs-3">{{number_format($product->price)}}</span>
                 </p>
+              </div>
+              <div class="maskWrap">
+                <span style="--i: 1;" class="item"></span>
+                <span style="--i: 2;" class="item"></span>
+                <span style="--i: 3;" class="item"></span>
+                <span style="--i: 4;" class="item"></span>
+                <span style="--i: 5;" class="item"></span>
+                <span style="--i: 6;" class="item"></span>
+                <span style="--i: 7;" class="item"></span>
+                <span style="--i: 8;" class="item"></span>
+                <span style="--i: 9;" class="item"></span>
+                <span style="--i: 10;" class="item"></span>
+                <span style="--i: 11;" class="item"></span>
+                <span style="--i: 12;" class="item"></span>
+                <span style="--i: 13;" class="item"></span>
+                <span style="--i: 14;" class="item"></span>
+                <span style="--i: 15;" class="item"></span>
+                <span style="--i: 16;" class="item"></span>
+                <span style="--i: 17;" class="item"></span>
+                <span style="--i: 18;" class="item"></span>
+                <span style="--i: 19;" class="item"></span>
+                <span style="--i: 20;" class="item"></span>
+                <span style="--i: 21;" class="item"></span>
+                <span style="--i: 22;" class="item"></span>
+                <span style="--i: 23;" class="item"></span>
+                <span style="--i: 24;" class="item"></span>
+                <span style="--i: 25;" class="item"></span>
+              </div>
+              <div class="card-content">
+                <div class="text-center">
+                  <h4 class="card-title text-white">{{$product->name}}</h4>
+                  <a href="{{route('products.show',['product'=> $product->id])}}" role="button" class="text-decoration-none stretched-link text-center text-white btn btn-outline-primary">
+                    查看更多
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -77,13 +111,46 @@
             </div>
             <div class="card-body text-center">
               <h5 class="card-title text-primary h6">{{$product->name}}</h5>
-              <a href="{{route('products.show', ['product'=> $product->id] )}}" class="text-decoration-none stretched-link">
                 <h4 class="card-title">{{$product->name}}</h4>
-              </a>
               <hr>
               <p>NT$ 
                 <span class="fs-3">{{number_format($product->price)}}</span>
               </p>
+            </div>
+            <div class="maskWrap">
+              <span style="--i: 1;" class="item"></span>
+              <span style="--i: 2;" class="item"></span>
+              <span style="--i: 3;" class="item"></span>
+              <span style="--i: 4;" class="item"></span>
+              <span style="--i: 5;" class="item"></span>
+              <span style="--i: 6;" class="item"></span>
+              <span style="--i: 7;" class="item"></span>
+              <span style="--i: 8;" class="item"></span>
+              <span style="--i: 9;" class="item"></span>
+              <span style="--i: 10;" class="item"></span>
+              <span style="--i: 11;" class="item"></span>
+              <span style="--i: 12;" class="item"></span>
+              <span style="--i: 13;" class="item"></span>
+              <span style="--i: 14;" class="item"></span>
+              <span style="--i: 15;" class="item"></span>
+              <span style="--i: 16;" class="item"></span>
+              <span style="--i: 17;" class="item"></span>
+              <span style="--i: 18;" class="item"></span>
+              <span style="--i: 19;" class="item"></span>
+              <span style="--i: 20;" class="item"></span>
+              <span style="--i: 21;" class="item"></span>
+              <span style="--i: 22;" class="item"></span>
+              <span style="--i: 23;" class="item"></span>
+              <span style="--i: 24;" class="item"></span>
+              <span style="--i: 25;" class="item"></span>
+            </div>
+            <div class="card-content">
+              <div class="text-center">
+                <h4 class="card-title text-white">{{$product->name}}</h4>
+                <a href="{{route('products.show',['product'=> $product->id])}}" role="button" class="text-decoration-none stretched-link text-center text-white btn btn-outline-primary">
+                  查看更多
+                </a>
+              </div>
             </div>
           </div>
 

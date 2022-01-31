@@ -122,3 +122,44 @@ img{
 .mt-n88{
   margin-top: -88px;
 }
+
+
+.card{
+  >.maskWrap{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 100;
+    >.item{
+      background-color: rgba(0,0,0,.9);
+      opacity: 0;
+      transition: .3s ease;
+      transition-delay: calc(0.01s * var(--i));
+      height: calc(100% / 25);
+      display: block;
+    }
+  }
+  &-content{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 110;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .3s ease;
+    transform: scale(0);
+  }
+  &:hover{
+    .item{
+      opacity: 1;
+    }
+    .card-content{
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+}
