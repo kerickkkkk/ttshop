@@ -34,13 +34,13 @@
                 <div class="col-md-7 offset-md-1 position-relative z-index-1 vh-100">
                     <div class="row flex-column justify-content-center h-100">
                         <div class="pt-5">
-                            <h2 class="h1 fw-bold">
-                                <span class="bg-light text-primary lh-lg d-inline-block">
+                            <h2 class="display-4 fw-bold">
+                                <span class="lh-lg d-inline-block" style="background-color: rgba(200,200,200, .2)">
                                     來塊花生糖
                                 </span>
                             </h2>
                             <p class="fw-bold mb-3 h4">
-                                <span class="bg-light lh-lg d-inline-block">
+                                <span class="lh-lg d-inline-block" style="background-color: rgba(200,200,200, .2)">
                                     泡好一壺熱茶，配上童年的那份回憶，心裡都暖了起來！
                                 </span>
                             </p>
