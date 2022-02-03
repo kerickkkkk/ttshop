@@ -14,8 +14,8 @@
   <div class="row">
     <h3 class="d-flex text-primary" data-bs-toggle="collapse" data-bs-target="#status1" role="button">
       不接受退換貨的狀況
-      <button class="btn btn-primary ms-auto" type="button" >
-        +
+      <button class="btn btn-outline-primary ms-auto" type="button" >
+        -
       </button>
     </h3>
     <div class="collapse show" id="status1">
@@ -32,8 +32,8 @@
   <div class="row">
     <h3 class="d-flex text-primary" data-bs-toggle="collapse" data-bs-target="#status2" role="button">
       退換貨需知
-      <button class="btn btn-primary ms-auto" type="button" >
-        +
+      <button class="btn btn-outline-primary ms-auto" type="button" >
+        -
       </button>
     </h3>
     <div class="collapse show" id="status2">
@@ -62,5 +62,20 @@
 
 
 
+@endsection
+@section('js')
+<script>
+  $('.collapse').each((i,ele)=>{
+    $(ele).on('show.bs.collapse',()=>{
+      $(ele).prev().find('.btn').text('-').removeClass('btn-primary').addClass('btn-outline-primary')
+    })
+  })
+  $('.collapse').each((i,ele)=>{
+    $(ele).on('hide.bs.collapse',()=>{
+      $(ele).prev().find('.btn').text('+').removeClass('btn-outline-primary').addClass('btn-primary')
+    })
+  })
+
+</script>
 @endsection
 
