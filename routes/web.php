@@ -26,6 +26,9 @@ use App\Http\Controllers\ProductCategoryController;
 */
 
 // 前臺
+Route::get('/index', function(){
+    return view('index');
+});
 
 Route::get('/', function () {
     $productCategories = ProductCategory::all();

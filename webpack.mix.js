@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-
+const path = require('path')
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,6 +11,9 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .vue()
+mix.alias({
+        '@' : path.join(__dirname, 'resource/js')
+    })
+    .js('resources/js/app.js', 'public/js')
+    .vue({version: 3 })
     .sass('resources/sass/app.scss', 'public/css');
